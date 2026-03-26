@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: dark;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c1506">
+  <title>Tom N Jerry's Sports Bar — Folsom, PA</title>
+  <meta name="description" content="Tom N Jerry's Sports Bar in Folsom, PA. 23 HD TVs, 11×6 big screen, live music Wed–Sat, no cover charge. Open 7 days, 11AM–2AM. 1006 MacDade Blvd, (610) 586-1008.">
+  <meta property="og:title" content="Tom N Jerry's Sports Bar — Folsom, PA">
+  <meta property="og:description" content="Delaware County's premier sports bar. Live music every weekend, 23 TVs, no cover charge. Open daily 11AM–2AM.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tomnjerrys.com">
+  <link rel="canonical" href="https://tomnjerrys.com">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-deep: #0c1506;
+      --green-base: #223D0E;
+      --green-mid: #2d5212;
+      --green-light: #3a6617;
+      --yellow: #FFF600;
+      --yellow-glow: rgba(255, 246, 0, 0.12);
+      --black: #07100303;
+      --surface: #172509;
+      --surface-2: #1e3009;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+
+    /* Touch */
+    a, button, [role="button"] { touch-action: manipulation; }
+
+    body {
+      background-color: #060c03;
+      color: #dde8d4;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grain texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.04;
+    }
+
+    h1, h2, h3, h4, .display {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* ─── NAVIGATION ─── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px max(56px, env(safe-area-inset-left));
+      padding-right: max(56px, env(safe-area-inset-right));
+      transition: background 0.4s ease, padding 0.35s ease, box-shadow 0.4s ease;
+    }
+
+    #nav.scrolled {
+      background: rgba(7, 12, 3, 0.96);
+      padding-top: 14px;
+      padding-bottom: 14px;
+      box-shadow: 0 1px 0 rgba(255,246,0,0.08), 0 8px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo span {
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      font-size: 16px;
+      margin: 0 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: var(--yellow);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; }
+
+    .nav-cta {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0c1506;
+      background: var(--yellow);
+      text-decoration: none;
+      padding: 10px 22px;
+      transition: background 0.2s ease, transform 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-cta:hover { background: #fff; }
+    .nav-cta:active { transform: translateY(1px); }
+    .nav-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(255,255,255,0.8);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* ─── HERO ─── */
+    #home {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--green-deep);
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background: url('https://placehold.co/1920x1080/0f1e06/0f1e06') center/cover no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 70% at 10% 55%, rgba(255,246,0,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 100% at 85% 10%, rgba(34,61,14,0.6) 0%, transparent 55%),
+        linear-gradient(105deg, rgba(7,12,3,0.97) 0%, rgba(7,12,3,0.7) 45%, rgba(7,12,3,0.88) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 10vw 0 10vw;
+      max-width: 980px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards ease;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 2px;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    .hero-h1 {
+      font-size: clamp(60px, 8.5vw, 128px);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards ease;
+    }
+
+    .hero-h1 em {
+      display: block;
+      color: var(--yellow);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.6vw, 18px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      max-width: 460px;
+      margin-top: 28px;
+      margin-bottom: 52px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards ease;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards ease;
+    }
+
+    .btn-primary {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0c1506;
+      background: var(--yellow);
+      text-decoration: none;
+      padding: 16px 36px;
+      display: inline-block;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    .btn-ghost {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      text-decoration: none;
+      padding: 16px 36px;
+      display: inline-block;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-2px); }
+    .btn-ghost:active { transform: translateY(0); }
+    .btn-ghost:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 10vw;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 0.8s 1s forwards ease;
+    }
+
+    .hero-scroll-line {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,246,0,0.4);
+    }
+
+    .hero-scroll-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── TICKER ─── */
+    .ticker {
+      background: var(--yellow);
+      padding: 13px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerScroll 35s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #0c1506;
+      white-space: nowrap;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .ticker-item::after {
+      content: '◆';
+      color: rgba(0,0,0,0.25);
+      font-size: 8px;
+    }
+
+    @keyframes tickerScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ─── SHARED SECTION STYLES ─── */
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5vw, 72px);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0.93;
+      letter-spacing: -0.025em;
+      color: #fff;
+      text-wrap: balance;
+    }
+
+    /* ─── FEATURES ─── */
+    #features {
+      background: var(--surface);
+      padding: 100px 80px;
+    }
+
+    .features-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .features-intro p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+      margin-top: 28px;
+      max-width: 380px;
+    }
+
+    .features-menu-cta {
+      background: var(--surface-2);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features-menu-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 80% 100%, rgba(255,246,0,0.06), transparent);
+      pointer-events: none;
+    }
+
+    .features-menu-cta-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+
+    .features-menu-cta-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-top: 20px;
+    }
+
+    .features-menu-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,246,0,0.3);
+      padding-bottom: 4px;
+      transition: border-color 0.2s ease, gap 0.2s ease;
+      width: fit-content;
+    }
+
+    .features-menu-cta-link:hover { border-color: var(--yellow); gap: 16px; }
+    .features-menu-cta-link:focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .feature-card {
+      background: var(--surface-2);
+      padding: 44px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover::before { transform: scaleX(1); }
+
+    .feature-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 68px;
+      font-weight: 700;
+      color: var(--yellow);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .feature-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.5);
+      margin-top: 10px;
+    }
+
+    /* ─── EVENTS ─── */
+    #events {
+      background: var(--green-deep);
+      padding: 100px 80px;
+    }
+
+    .events-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .events-header-right {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.4);
+      text-align: right;
+      padding-bottom: 4px;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .event-card {
+      background: var(--surface);
+      padding: 44px 40px 40px;
+      position: relative;
+      cursor: default;
+      transition: background 0.25s ease;
+    }
+
+    .event-card:hover { background: #1e3009; }
+
+    .event-card.accent {
+      background: var(--yellow);
+    }
+
+    .event-card.accent:hover {
+      background: #fff9a0;
+    }
+
+    .event-day {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 20px;
+    }
+
+    .event-card.accent .event-day {
+      color: rgba(0,0,0,0.45);
+    }
+
+    .event-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .event-card.accent .event-title { color: #0c1506; }
+
+    .event-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .event-card.accent .event-desc { color: rgba(0,0,0,0.6); }
+
+    .event-pill {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 5px 14px;
+      background: rgba(255,246,0,0.1);
+      border: 1px solid rgba(255,246,0,0.25);
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+
+    .event-card.accent .event-pill {
+      background: rgba(0,0,0,0.1);
+      border-color: rgba(0,0,0,0.2);
+      color: #0c1506;
+    }
+
+    /* ─── SPECIALS ─── */
+    #specials {
+      background: var(--yellow);
+      padding: 100px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .specials-watermark {
+      position: absolute;
+      font-family: 'Oswald', sans-serif;
+      font-size: 260px;
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(0,0,0,0.055);
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+    }
+
+    #specials .section-label { color: rgba(0,0,0,0.4); }
+    #specials .section-label::before { background: rgba(0,0,0,0.25); }
+    #specials .section-title { color: #0c1506; }
+
+    .specials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .special-card {
+      background: rgba(0,0,0,0.07);
+      padding: 44px 40px;
+      transition: background 0.2s ease;
+    }
+
+    .special-card:hover { background: rgba(0,0,0,0.11); }
+
+    .special-when {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.4);
+      margin-bottom: 14px;
+    }
+
+    .special-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #0c1506;
+      margin-bottom: 14px;
+    }
+
+    .special-price {
+      font-family: 'Oswald', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #0c1506;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .special-detail {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(0,0,0,0.55);
+      margin-top: 14px;
+    }
+
+    .specials-disclaimer {
+      margin-top: 32px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+    }
+
+    /* ─── GALLERY ─── */
+    #gallery {
+      background: var(--surface);
+      padding: 100px 80px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 4px;
+      margin-top: 64px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-item.span2 { grid-column: span 2; }
+    .gallery-item.tall  { grid-row: span 2; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover::after { opacity: 1; }
+
+    /* ─── HOURS & LOCATION ─── */
+    #hours {
+      background: var(--green-deep);
+      padding: 100px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .hours-table {
+      width: 100%;
+      margin-top: 48px;
+      border-collapse: collapse;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .hours-table td {
+      padding: 15px 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .hours-table td:last-child {
+      text-align: right;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    .hours-table .today td {
+      color: var(--yellow) !important;
+    }
+
+    .contact-stack {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact-item-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 5px;
+    }
+
+    .contact-item-value {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      line-height: 1.5;
+      display: block;
+      transition: color 0.2s ease;
+    }
+
+    a.contact-item-value:hover { color: var(--yellow); }
+    a.contact-item-value:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+    .map-frame {
+      width: 100%;
+      height: 200px;
+      margin-top: 36px;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 40px);
+    }
+
+    .map-pin-group {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .map-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--yellow);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 5px rgba(255,246,0,0.18),
+        0 0 0 12px rgba(255,246,0,0.08);
+    }
+
+    .map-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.6);
+      padding: 6px 14px;
+    }
+
+    .directions-btn {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      text-decoration: none;
+      border: 1px solid rgba(255,246,0,0.3);
+      padding: 10px 22px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .directions-btn:hover {
+      background: var(--yellow);
+      color: #0c1506;
+    }
+
+    .directions-btn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060c03;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 56px 80px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .footer-center {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.8;
+    }
+
+    .footer-right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .social-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+    .social-btn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.in-view,
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+
+    /* ─── REDUCED MOTION ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-eyebrow, .hero-h1, .hero-sub, .hero-actions, .hero-scroll {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .ticker-track { animation: none; }
+    }
+
+    /* ─── SKIP LINK ─── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 9999;
+      background: var(--yellow);
+      color: #0c1506;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 20px;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 20px; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      #nav, #nav.scrolled { padding-left: 40px; padding-right: 40px; }
+      #features, #events, #specials, #gallery { padding: 80px 48px; }
+      #hours { padding: 80px 48px; gap: 60px; }
+      footer { padding: 48px; }
+      .hero-content { padding: 0 8vw; }
+      .features-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .features-layout { grid-template-columns: 1fr; gap: 48px; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-header { grid-template-columns: 1fr; }
+      .events-header-right { text-align: left; }
+      .specials-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: 220px 220px; }
+      .gallery-item.span2 { grid-column: span 1; }
+      #hours { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      #nav, #nav.scrolled { padding-left: 24px; padding-right: 24px; }
+      .nav-links { display: none !important; }
+      .nav-hamburger { display: flex; }
+      #features, #events, #specials, #gallery, #hours { padding: 64px 24px; }
+      footer { padding: 40px 24px; grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      .footer-right { justify-content: center; }
+      .hero-content { padding: 0 24px; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-grid { grid-template-columns: 1fr; }
+      .specials-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gallery-item.tall { grid-row: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#home" class="skip-link">Skip to main content</a>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="nav-logo">Tom<span>&</span>Jerry's</a>
+    <ul class="nav-links" id="nav-links-list">
+      <li><a href="#events">Events</a></li>
+      <li><a href="#specials">Specials</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#hours">Hours</a></li>
+    </ul>
+    <a href="tel:6105861008" class="nav-cta">Call Us</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links-list">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="home" aria-label="Hero" tabindex="-1">
+    <div class="hero-img" role="img" aria-label="Tom N Jerry's sports bar interior"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Folsom, Pennsylvania · Est. Neighborhood Bar</p>
+      <h1 class="hero-h1">
+        Your Game Day
+        <em>Headquarters</em>
+      </h1>
+      <p class="hero-sub">23 TVs. An 11×6 foot big screen. Live bands every weekend. Cold beer, great food — zero cover charge.</p>
+      <div class="hero-actions">
+        <a href="#specials" class="btn-primary">See Today's Specials</a>
+        <a href="#hours" class="btn-ghost">Hours &amp; Location</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ TICKER ═══════════ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">23 HD TVs</span>
+      <span class="ticker-item">11×6 Big Screen</span>
+      <span class="ticker-item">Live Music Fri &amp; Sat</span>
+      <span class="ticker-item">Open Mic Wednesdays</span>
+      <span class="ticker-item">No Cover — Ever</span>
+      <span class="ticker-item">Open 7 Days</span>
+      <span class="ticker-item">Full Kitchen Until Close</span>
+      <span class="ticker-item">Pool Tables</span>
+      <span class="ticker-item">Patio Seating</span>
+      <span class="ticker-item">23 HD TVs</span>
+      <span class="ticker-item">11×6 Big Screen</span>
+      <span class="ticker-item">Live Music Fri &amp; Sat</span>
+      <span class="ticker-item">Open Mic Wednesdays</span>
+      <span class="ticker-item">No Cover — Ever</span>
+      <span class="ticker-item">Open 7 Days</span>
+      <span class="ticker-item">Full Kitchen Until Close</span>
+      <span class="ticker-item">Pool Tables</span>
+      <span class="ticker-item">Patio Seating</span>
+    </div>
+  </div>
+
+  <!-- ═══════════ FEATURES ═══════════ -->
+  <section id="features">
+    <div class="features-layout">
+      <div class="features-intro">
+        <div class="section-label">Why Tom N Jerry's</div>
+        <h2 class="section-title">Delaware County's<br>Premier<br>Sports Bar</h2>
+        <p>The biggest screen, the most TVs, live bands every week, and a neighborhood vibe that keeps people coming back. 1006 MacDade Blvd has been the home of Delaware County sports fans for years.</p>
+      </div>
+      <div class="features-menu-cta reveal">
+        <div class="features-menu-cta-label">Food &amp; Drinks</div>
+        <div class="features-menu-cta-title">Wings. Cheesesteaks. Cold Beer.</div>
+        <a href="/menu/" class="features-menu-cta-link">
+          View Full Menu →
+        </a>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-num">23</div>
+        <div class="feature-text">HD TVs — every game, every sport, all at once</div>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="feature-num">11×6</div>
+        <div class="feature-text">Foot big screen, the largest in Delaware County</div>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="feature-num">3×</div>
+        <div class="feature-text">Live music nights every week, no cover charge</div>
+      </div>
+      <div class="feature-card reveal reveal-d3">
+        <div class="feature-num">11A–2A</div>
+        <div class="feature-text">Open every day of the week, all year long</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ EVENTS ═══════════ -->
+  <section id="events">
+    <div class="events-header">
+      <div>
+        <div class="section-label">Live At The Bar</div>
+        <h2 class="section-title">What's<br>On</h2>
+      </div>
+      <p class="events-header-right">Live entertainment and sports on all season long. No cover charge — ever. Just show up.</p>
+    </div>
+    <div class="events-grid">
+
+      <div class="event-card reveal">
+        <div class="event-day">Every Wednesday</div>
+        <div class="event-title">Open Mic Night</div>
+        <p class="event-desc">Hosted by Musician Impossible. Sign the play sheet and jam with the house band. Featured artist weekly — anyone can get on stage.</p>
+        <span class="event-pill">No Cover</span>
+      </div>
+
+      <div class="event-card reveal reveal-d1">
+        <div class="event-day">Every Friday</div>
+        <div class="event-title">Live Cover Bands</div>
+        <p class="event-desc">Delaware County's best live acts on the stage every Friday. Full sets, dancing, and a crowd that actually shows up.</p>
+        <span class="event-pill">No Cover</span>
+      </div>
+
+      <div class="event-card reveal reveal-d2">
+        <div class="event-day">Every Saturday</div>
+        <div class="event-title">Live Music</div>
+        <p class="event-desc">Keep the weekend rolling with another night of live music. Rotating lineup of local and regional acts — Saturday done right.</p>
+        <span class="event-pill">No Cover</span>
+      </div>
+
+      <div class="event-card reveal">
+        <div class="event-day">NFL Sundays</div>
+        <div class="event-title">Game Day</div>
+        <p class="event-desc">Every NFL game on the big screen. Eagles territory. 23 TVs mean you never miss a play, no matter who's playing.</p>
+        <span class="event-pill">All Season</span>
+      </div>
+
+      <div class="event-card reveal reveal-d1">
+        <div class="event-day">All Year Round</div>
+        <div class="event-title">All Sports</div>
+        <p class="event-desc">NBA, NFL, NHL, MLB, boxing, college sports, tennis, golf, soccer — if it's on, we're showing it. All the time.</p>
+        <span class="event-pill">Every Game</span>
+      </div>
+
+      <div class="event-card accent reveal reveal-d2">
+        <div class="event-day">Private Bookings</div>
+        <div class="event-title">Book<br>The Bar</div>
+        <p class="event-desc">Hosting a watch party, birthday, or private event? We seat up to 200 people with full bar and kitchen service.</p>
+        <a href="tel:6105861008" class="btn-primary" style="margin-top: 28px; font-size: 12px; padding: 12px 22px; background: #0c1506; color: var(--yellow);">Call to Book →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════ SPECIALS ═══════════ -->
+  <section id="specials">
+    <div class="specials-watermark" aria-hidden="true">Deals</div>
+    <div class="section-label">Drink &amp; Food Deals</div>
+    <h2 class="section-title">Weekly<br>Specials</h2>
+
+    <div class="specials-grid">
+      <div class="special-card reveal">
+        <div class="special-when">Mon – Fri · 3PM – 7PM</div>
+        <div class="special-name">Happy Hour</div>
+        <div class="special-price">$1 OFF</div>
+        <p class="special-detail">All drafts and domestic bottles. Bar seating only. The best way to end a workday in Delaware County.</p>
+      </div>
+      <div class="special-card reveal reveal-d1">
+        <div class="special-when">Every Wednesday</div>
+        <div class="special-name">Wing Night</div>
+        <div class="special-price">$.75</div>
+        <p class="special-detail">Bone-in wings per piece, your choice of sauce. Dine-in only. Pair with open mic night for the full experience.</p>
+      </div>
+      <div class="special-card reveal reveal-d2">
+        <div class="special-when">Fri &amp; Sat Nights</div>
+        <div class="special-name">Beer Buckets</div>
+        <div class="special-price">$18</div>
+        <p class="special-detail">Five domestic bottles on ice. Available while supplies last. Share with the table, enjoy the live music.</p>
+      </div>
+      <div class="special-card reveal">
+        <div class="special-when">NFL Sundays</div>
+        <div class="special-name">Game Day Pitchers</div>
+        <div class="special-price">$12</div>
+        <p class="special-detail">Domestic draft pitchers all Sunday during NFL games. Touchdown cheers included at no extra charge.</p>
+      </div>
+      <div class="special-card reveal reveal-d1">
+        <div class="special-when">All Day · Every Day</div>
+        <div class="special-name">Shot &amp; Beer</div>
+        <div class="special-price">$7</div>
+        <p class="special-detail">Well shot plus domestic bottle. The neighborhood classic. Ask your bartender for the full well selection.</p>
+      </div>
+      <div class="special-card reveal reveal-d2">
+        <div class="special-when">Monday Nights</div>
+        <div class="special-name">Burger Night</div>
+        <div class="special-price">$9</div>
+        <p class="special-detail">Char-broiled Angus burger with fries. Upgrade to a double for $3 more. Mondays just got better.</p>
+      </div>
+    </div>
+
+    <p class="specials-disclaimer">* Specials subject to change. Ask your server for current offers.</p>
+  </section>
+
+  <!-- ═══════════ GALLERY ═══════════ -->
+  <section id="gallery">
+    <div class="section-label">Inside The Bar</div>
+    <h2 class="section-title">The Experience</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item span2 tall reveal">
+        <img src="https://placehold.co/900x600/172509/3a6617?text=Big+Screen" alt="The 11x6 foot big screen" width="900" height="600" loading="lazy">
+      </div>
+      <div class="gallery-item reveal reveal-d1">
+        <img src="https://placehold.co/600x400/1e3009/FFF600?text=Bar+Area" alt="Bar area" width="600" height="400" loading="lazy">
+      </div>
+      <div class="gallery-item reveal reveal-d2">
+        <img src="https://placehold.co/600x400/172509/3a6617?text=Live+Music" alt="Live music night" width="600" height="400" loading="lazy">
+      </div>
+      <div class="gallery-item reveal reveal-d1">
+        <img src="https://placehold.co/600x400/1e3009/FFF600?text=Game+Day" alt="Game day crowd" width="600" height="400" loading="lazy">
+      </div>
+      <div class="gallery-item reveal reveal-d2">
+        <img src="https://placehold.co/600x400/172509/3a6617?text=Patio" alt="Outdoor patio" width="600" height="400" loading="lazy">
+      </div>
+      <div class="gallery-item reveal reveal-d3">
+        <img src="https://placehold.co/600x400/1e3009/FFF600?text=Wings" alt="Famous wings" width="600" height="400" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HOURS & LOCATION ═══════════ -->
+  <section id="hours">
+    <div>
+      <div class="section-label">We're Open</div>
+      <h2 class="section-title">Hours</h2>
+      <table class="hours-table" aria-label="Business hours">
+        <tbody>
+          <tr data-day="Monday"><td>Monday</td><td>11:00 AM – 2:00 AM</td></tr>
+          <tr data-day="Tuesday"><td>Tuesday</td><td>11:00 AM – 2:00 AM</td></tr>
+          <tr data-day="Wednesday"><td>Wednesday</td><td>11:00 AM – 2:00 AM</td></tr>
+          <tr data-day="Thursday"><td>Thursday</td><td>11:00 AM – 2:00 AM</td></tr>
+          <tr data-day="Friday"><td>Friday</td><td>11:00 AM – 2:00 AM</td></tr>
+          <tr data-day="Saturday"><td>Saturday</td><td>11:00 AM – 2:00 AM</td></tr>
+          <tr data-day="Sunday"><td>Sunday</td><td>11:00 AM – 2:00 AM</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Location</h2>
+      <div class="contact-stack">
+        <div>
+          <div class="contact-item-label">Address</div>
+          <a href="https://maps.google.com/?q=1006+MacDade+Blvd+Folsom+PA+19033" target="_blank" rel="noopener" class="contact-item-value">
+            1006 MacDade Boulevard<br>Folsom, PA 19033
+          </a>
+        </div>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <a href="tel:6105861008" class="contact-item-value">(610) 586-1008</a>
+        </div>
+        <div>
+          <div class="contact-item-label">Reservations</div>
+          <span class="contact-item-value" style="font-size:14px; color:rgba(255,255,255,0.45);">
+            Walk-ins always welcome.<br>Call ahead for parties of 10 or more.
+          </span>
+        </div>
+      </div>
+      <div class="map-frame" role="img" aria-label="Map placeholder for Tom N Jerry's location">
+        <div class="map-pin-group">
+          <div class="map-dot"></div>
+          <div class="map-label">Tom N Jerry's · Folsom, PA</div>
+        </div>
+      </div>
+      <a href="https://maps.google.com/?q=1006+MacDade+Blvd+Folsom+PA+19033" target="_blank" rel="noopener" class="directions-btn">
+        Get Directions →
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <a href="#home" class="footer-logo">Tom N Jerry's</a>
+    <div class="footer-center">
+      1006 MacDade Blvd, Folsom PA 19033 &nbsp;·&nbsp; (610) 586-1008<br>
+      © <span id="copy-year">2025</span> Tom N Jerry's Sports Bar. All rights reserved.
+    </div>
+    <div class="footer-right">
+      <a href="https://www.instagram.com/tomnjerryssportsbar/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">IG</a>
+      <a href="https://www.facebook.com/pages/Tom-and-Jerrys-Sports-Bar/1450603128577543" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">FB</a>
+    </div>
+  </footer>
+
+  <!-- ═══════════ SCRIPTS ═══════════ -->
+  <script>
+    // Dynamic copyright year
+    document.getElementById('copy-year').textContent = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(new Date());
+
+    // Nav scroll behavior
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Mobile hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-links-list');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      hamburger.setAttribute('aria-expanded', menuOpen);
+      if (menuOpen) {
+        Object.assign(navList.style, {
+          display: 'flex', flexDirection: 'column', position: 'absolute',
+          top: '100%', left: '0', right: '0', padding: '24px 32px',
+          background: 'rgba(7,12,3,0.98)', gap: '18px',
+          backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
+          borderTop: '1px solid rgba(255,246,0,0.1)'
+        });
+      } else {
+        navList.style.display = '';
+      }
+    });
+
+    // Close mobile menu on link click
+    navList.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (menuOpen) { menuOpen = false; navList.style.display = ''; hamburger.setAttribute('aria-expanded', false); }
+      });
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Highlight today's hours
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const today = dayNames[new Date().getDay()];
+    document.querySelectorAll('.hours-table tr').forEach(row => {
+      if (row.dataset.day === today) row.classList.add('today');
+    });
+  </script>
+</body>
+</html>
